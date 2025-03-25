@@ -18,7 +18,7 @@ export function Header() {
           {/* Featured Button */}
           <Link
             href="/featured"
-            className="nav-button text-white font-medium hover:text-white pl-[2px] absolute left-0"
+            className="nav-button text-white font-normal hover:text-white pl-[2px] absolute left-0"
           >
             Featured
           </Link>
