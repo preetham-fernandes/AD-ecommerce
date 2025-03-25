@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { ChevronDown, ChevronUp } from "lucide-react";
 
 const sizes = ["XS", "S", "M", "L", "XL", "XXL"];
 const colors = [
@@ -14,6 +15,9 @@ const colors = [
 export function ProductInfo() {
   const [selectedSize, setSelectedSize] = useState("");
   const [selectedColor, setSelectedColor] = useState("");
+  const [isProductInfoOpen, setIsProductInfoOpen] = useState(false);
+  const [isReviewsOpen, setIsReviewsOpen] = useState(false);
+  const [isDeliveryOpen, setIsDeliveryOpen] = useState(false);
 
   return (
     <div className="sticky top-24">
@@ -88,16 +92,115 @@ export function ProductInfo() {
       </div>
 
       {/* Add to Cart Button */}
-      <button className="w-full bg-black text-white py-4 rounded-full hover:bg-gray-800 transition-colors mb-4">
-        ADD TO CART
+      <button className="w-full bg-black text-white py-4 rounded-full hover:bg-gray-800 transition-colors mb-8">
+        ENQUIRE NOW
       </button>
 
-      {/* Product Description */}
-      <div className="prose prose-sm">
-        <p className="text-gray-600">
-          Exquisite bridal lehenga featuring intricate handcrafted embroidery with zari and sequin work. 
-          Comes with a matching blouse and dupatta. Perfect for wedding ceremonies and special occasions.
-        </p>
+      {/* Product Details Section */}
+      <div className="border-t pt-6">
+        <h2 className="text-2xl font-semibold mb-4">Product Details</h2>
+        
+        {/* Product Information Dropdown */}
+        <div className="border-b">
+          <button
+            className="w-full py-4 flex justify-between items-center"
+            onClick={() => setIsProductInfoOpen(!isProductInfoOpen)}
+          >
+            <h3 className="text-lg font-medium">Product Information</h3>
+            {isProductInfoOpen ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
+          </button>
+          {isProductInfoOpen && (
+            <div className="pb-4 text-gray-600">
+              <p className="mb-2">
+                Purple ruffled lehenga in georgette with a zip and draw string closure.
+                Paired with a padded golden blouse in georgette with sequin embroidery.
+              </p>
+              <ul className="list-disc pl-5">
+                <li>Material: Georgette</li>
+                <li>Style: Traditional</li>
+                <li>Occasion: Wedding, Festive</li>
+                <li>Care Instructions: Dry clean only</li>
+              </ul>
+            </div>
+          )}
+        </div>
+
+        {/* Reviews Dropdown */}
+        <div className="border-b">
+          <button
+            className="w-full py-4 flex justify-between items-center"
+            onClick={() => setIsReviewsOpen(!isReviewsOpen)}
+          >
+            <h3 className="text-lg font-medium">Reviews</h3>
+            {isReviewsOpen ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
+          </button>
+          {isReviewsOpen && (
+            <div className="pb-4">
+              <div className="flex items-center gap-4 mb-4">
+                <div className="text-4xl font-bold">4.0</div>
+                <div>
+                  <div className="flex text-xl mb-1">
+                    {[1, 2, 3, 4].map((star) => (
+                      <span key={star} className="text-black">★</span>
+                    ))}
+                    <span className="text-gray-300">★</span>
+                  </div>
+                  <div className="text-gray-500">Based on 207 reviews</div>
+                </div>
+              </div>
+              
+              {/* Rating Distribution */}
+              <div className="space-y-2 mb-4">
+                {[5, 4, 3, 2, 1].map((rating) => (
+                  <div key={rating} className="flex items-center gap-2">
+                    <span className="w-3">{rating}</span>
+                    <div className="flex-1 h-2 bg-gray-200 rounded-full overflow-hidden">
+                      <div 
+                        className="h-full bg-black" 
+                        style={{ 
+                          width: `${rating === 4 ? '60%' : rating === 5 ? '20%' : rating === 3 ? '15%' : '5%'}` 
+                        }}
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+
+        {/* Delivery & Returns Dropdown */}
+        <div className="border-b">
+          <button
+            className="w-full py-4 flex justify-between items-center"
+            onClick={() => setIsDeliveryOpen(!isDeliveryOpen)}
+          >
+            <h3 className="text-lg font-medium">Delivery & Returns</h3>
+            {isDeliveryOpen ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
+          </button>
+          {isDeliveryOpen && (
+            <div className="pb-4 text-gray-600">
+              <div className="mb-4">
+                <h4 className="font-medium text-black mb-2">Delivery Information</h4>
+                <ul className="list-disc pl-5 space-y-1">
+                  <li>Free standard delivery on all orders</li>
+                  <li>Express delivery available (additional charges apply)</li>
+                  <li>Estimated delivery time: 5-7 business days</li>
+                  <li>Track your order through our order tracking system</li>
+                </ul>
+              </div>
+              <div>
+                <h4 className="font-medium text-black mb-2">Returns Policy</h4>
+                <ul className="list-disc pl-5 space-y-1">
+                  <li>Easy 30-day return policy</li>
+                  <li>Items must be unworn with original tags attached</li>
+                  <li>Free returns on all orders</li>
+                  <li>Customized items are non-returnable</li>
+                </ul>
+              </div>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );

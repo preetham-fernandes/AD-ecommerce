@@ -4,12 +4,11 @@ import { useState } from "react";
 import Image from "next/image";
 
 const images = [
-  "/lehenga-1.jpg",
-  "/lehenga-2.jpg",
-  "/lehenga-3.jpg",
-  "/lehenga-4.jpg",
-  "/lehenga-5.jpg",
-  "/lehenga-6.jpg",
+  "/lehenga1.webp",
+  "/lehenga2.webp",
+  "/lehenga3.webp",
+  "/lehenga4.webp",
+  "/lehenga5.webp"
 ];
 
 export function ProductGallery() {
