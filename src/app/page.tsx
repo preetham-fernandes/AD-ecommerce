@@ -11,6 +11,8 @@ import {
   Youtube,
   Mail
 } from 'lucide-react';
+import { Header } from "@/components/Header"
+import { Hero } from '@/components/Hero';
 
 const carouselImages = [
   'https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&q=80&w=2000',
@@ -52,57 +54,10 @@ function App() {
   return (
     <div className="min-h-screen bg-white">
       {/* Navigation */}
-      <nav className="fixed top-0 w-full bg-white shadow-md z-50">
-        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-          <div className="text-2xl font-bold text-maroon-800">Absolutely Desi</div>
-          
-          <div className="hidden md:flex space-x-8">
-            <a href="#" className="text-gray-700 hover:text-maroon-600">Women</a>
-            <a href="#" className="text-gray-700 hover:text-maroon-600">Men</a>
-            <a href="#" className="text-gray-700 hover:text-maroon-600">Kids</a>
-            <a href="#" className="text-gray-700 hover:text-maroon-600">Accessories</a>
-            <a href="#" className="text-gray-700 hover:text-maroon-600">Collections</a>
-          </div>
-
-          <div className="flex items-center space-x-6">
-            <Search className="w-5 h-5 text-gray-600 cursor-pointer" />
-            <User className="w-5 h-5 text-gray-600 cursor-pointer" />
-            <button className="bg-maroon-600 text-white px-4 py-2 rounded-md hover:bg-maroon-700">
-              Become an Affiliate
-            </button>
-          </div>
-        </div>
-      </nav>
+      <Header/>
 
       {/* Hero Section */}
-      <div className="relative h-screen mt-16">
-        <div className="absolute inset-0">
-          <img
-            src={carouselImages[currentSlide]}
-            alt="Hero"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-black bg-opacity-40"></div>
-        </div>
-
-        <button onClick={prevSlide} className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/50 p-2 rounded-full">
-          <ChevronLeft className="w-6 h-6" />
-        </button>
-        <button onClick={nextSlide} className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/50 p-2 rounded-full">
-          <ChevronRight className="w-6 h-6" />
-        </button>
-
-        <div className="absolute inset-0 flex items-center justify-center text-center">
-          <div>
-            <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
-              Authentic Indian Ethnic Wear
-            </h1>
-            <button className="bg-white text-maroon-600 px-8 py-3 rounded-md text-lg font-semibold hover:bg-gray-100">
-              Inquire Now
-            </button>
-          </div>
-        </div>
-      </div>
+      <Hero/>
 
       {/* Featured Categories */}
       <section className="py-16 bg-gray-50">

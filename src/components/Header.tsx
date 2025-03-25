@@ -4,12 +4,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 
-const rightNavigation = [
-  { name: "Kids", href: "/kids" },
-  { name: "Accessories", href: "/accessories" },
-  { name: "Sign In", href: "/signin" },
-];
-
 export function Header() {
   return (
     <header className="fixed top-0 w-full bg-black/95 text-white z-50">
@@ -45,19 +39,14 @@ export function Header() {
           </Link>
 
           {/* Right Navigation */}
-          <div className="hidden sm:flex items-center space-x-8 pr-4">
-            {rightNavigation.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className={cn(
-                  "nav-button text-gray-300 hover:text-white px-2 py-2",
-                  item.name === "Sign In" && "text-white font-medium"
-                )}
-              >
-                {item.name}
-              </Link>
-            ))}
+          <div className="hidden sm:flex items-center space-x-8 pl-24">
+            <Link href="/men" className="nav-button text-gray-300 hover:text-white px-2 py-2">
+              Men
+            </Link>
+            <button className="bg-maroon-600 text-white px-4 py-2 rounded-md hover:bg-maroon-700">
+              Become an Affiliate
+            </button>
+
           </div>
         </div>
       </nav>
