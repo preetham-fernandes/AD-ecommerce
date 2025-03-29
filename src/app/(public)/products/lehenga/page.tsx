@@ -1,5 +1,6 @@
 "use client"
 import React, { useState } from 'react';
+import { Header } from '@/components/Header';
 import {
   Search,
   User,
@@ -61,39 +62,10 @@ function App() {
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
-      <header className="bg-white shadow-sm">
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
-            <div className="text-2xl font-bold text-maroon-800">Absolutely Desi</div>
-            <div className="flex items-center space-x-6">
-              <div className="relative">
-                <input
-                  type="text"
-                  placeholder="Search lehengas..."
-                  className="pl-10 pr-4 py-2 border border-gray-200 rounded-lg w-64"
-                />
-                <Search className="absolute left-3 top-2.5 text-gray-400 w-5 h-5" />
-              </div>
-              <button className="p-2 hover:text-maroon-600">
-                <User className="w-5 h-5" />
-              </button>
-              <button className="bg-maroon-800 text-white px-4 py-2 rounded-lg hover:bg-maroon-700">
-                Become an Affiliate
-              </button>
-            </div>
-          </div>
-        </div>
-        
-        {/* Category Banner */}
-        <div className="relative h-48 bg-gradient-to-r from-maroon-800 to-maroon-600">
-          <div className="container mx-auto px-4 h-full flex items-center">
-            <h1 className="text-4xl font-bold text-white">Women's Lehengas</h1>
-          </div>
-        </div>
-      </header>
+      <Header/>
 
       {/* Main Content */}
-      <main className="container mx-auto px-4 py-8">
+      <main className="container mt-24 mx-auto px-4 py-8">
         <div className="flex gap-8">
           {/* Filters Sidebar */}
           <div className="w-64 flex-shrink-0">
@@ -165,17 +137,6 @@ function App() {
           <div className="flex-1">
             {/* Sorting and View Controls */}
             <div className="flex justify-between items-center mb-6">
-              <div className="flex items-center space-x-4">
-                <select
-                  value={sortBy}
-                  onChange={(e) => setSortBy(e.target.value)}
-                  className="border border-gray-200 rounded-lg px-3 py-2"
-                >
-                  <option value="newest">Newest First</option>
-                  <option value="price-high">Price: High to Low</option>
-                  <option value="price-low">Price: Low to High</option>
-                </select>
-              </div>
               <div className="flex space-x-2">
                 <button
                   onClick={() => setViewMode('grid')}
@@ -274,13 +235,13 @@ function App() {
       </main>
 
       {/* Floating Affiliate Button */}
-      <button className="fixed right-6 bottom-6 bg-maroon-800 text-white px-6 py-3 rounded-full shadow-lg hover:bg-maroon-700 flex items-center space-x-2">
+      <button className="fixed right-6 bottom-6 bg-black text-white px-6 py-3 rounded-full shadow-lg hover:bg-maroon-700 flex items-center space-x-2">
         <Handshake className="w-5 h-5" />
         <span>Become an Affiliate</span>
       </button>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white mt-16 py-12">
+      <footer className="bg-black text-white mt-16 py-12">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-4 gap-8">
             <div>
